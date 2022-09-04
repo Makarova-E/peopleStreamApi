@@ -31,8 +31,7 @@ public class Main {
                 .filter(person -> person.getAge() >= 18)
                 .filter(person -> person.getSex() == Sex.MAN && person.getAge() < 65 ||
                         person.getSex() == Sex.WOMAN && person.getAge() < 60)
-                .limit(100)
-                .sorted((p1, p2) -> p1.getFamily().compareTo(p2.getFamily()))
+                .sorted(Comparator.comparing(Person::getFamily))
                 .collect(Collectors.toList());
         // System.out.println(workable);
     }
